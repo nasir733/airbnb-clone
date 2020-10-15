@@ -3,7 +3,7 @@ from .import models
 # Register your models here.
 
 
-@admin.register(models.list)
+@admin.register(models.List)
 class ListAdmin(admin.ModelAdmin):
     list_display = (
         "name", "user", "count_rooms",

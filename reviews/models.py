@@ -9,7 +9,7 @@ class Review(core_models.TimeStampedModel):
     communication = models.IntegerField()
     cleanliness = models.IntegerField()
     location = models.IntegerField()
-    checkin = models.IntegerField()
+    check_in = models.IntegerField()
     value = models.IntegerField()
     user = models.ForeignKey(
         "users.User", on_delete=models.CASCADE, related_name="reviews")
@@ -24,7 +24,7 @@ class Review(core_models.TimeStampedModel):
                +self. communication
                + self. cleanliness
                + self. location
-               + self. checkin
+               + self. check_in
                + self. value
                )/6
         return round(avg, 2)
