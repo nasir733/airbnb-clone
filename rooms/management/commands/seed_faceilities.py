@@ -24,5 +24,4 @@ class Command(BaseCommand):
         ]
         for f in facilities:
             Facility.objects.create(name=f)
-        self.stdout.write(self.style.SUCCESS(
-            f"{len(facilities)} facilities created!"))
+        self.stdout.write(self.style.SUCCESS(f"{len(facilities)} facilities created!"))

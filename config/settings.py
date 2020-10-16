@@ -37,9 +37,9 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django_countries",
-    "django_seed"
-
+    "django_seed",
 ]
+
 
 PROJECT_APPS = [
     'users.apps.UsersConfig',
@@ -79,6 +79,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -136,3 +137,13 @@ AUTH_USER_MODEL = 'users.User'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = '/media/'
+#Email COnfig
+# 
+
+EMAIL_HOST ='smtp.mailgun.org'
+EMAIL_PORT='587'
+EMAIL_HOST_USER =os.environ.get("MAIL_GUN_USERNAME") 
+EMAIL_HOST_PASSWORD=os.environ.get("MAIL_GUN_PASSWORD") 
+EMAIL_FROM='nasir1@sandboxfe70d65eb1df4a89b1fe5e366a358f32.mailgun.org'
+ 
+
