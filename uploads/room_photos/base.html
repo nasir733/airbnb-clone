@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block page_title %} {% endblock page_title %}|bnb</title>
+  </head>
+  <body>
+
+    <header>
+      {% include "partials/nav.html" %}
+
+
+      {% block search-bar %}
+      <form action="{% url "rooms:search" %}" method="get">
+        <input type="text" name="city" placeholder="search for city">
+      </form>
+      {% endblock search-bar %}
+    </header>
+    {% block content %}
+
+    {% endblock content %}
+    <h1>Hello</h1>
+  </body>
+</html>
