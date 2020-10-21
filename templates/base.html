@@ -1,25 +1,32 @@
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block page_title %} {% endblock page_title %}|bnb</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block page_title %}{% endblock page_title %}| Nbnb</title>
   </head>
-  <body>
-
-    <header>
+  <body class="text-gray-800 mt-24 font-light">
+    <header class="container max-w-full inset-0 flex items-center justify-between px-6 h-20 border-b border-gray-400 fixed bg-white">
+      <div class="flex items-center w-1/3">
+        <a href="{% url "core:home" %}" class="mr-6">
+            <img class="w-8" src="{% static 'img/alphabet-13-letter-l.png' %}" />
+        </a>
+      </div>
       {% include "partials/nav.html" %}
-
-
-      {% block search-bar %}
-      <form action="{% url "rooms:search" %}" method="get">
-        <input type="text" name="city" placeholder="search for city">
-      </form>
-      {% endblock search-bar %}
     </header>
-    {% block content %}
 
-    {% endblock content %}
-    <h1>Hello</h1>
+    {% block content %}{% endblock %}
+    {% comment %} <script>
+        const langSelect = document.getElementById("js-lang");
+        const handleLangChange = () => {
+            const selected = langSelect.value;
+            fetch(`{% url 'users:switch-language' %}?lang=${selected}`).then(() => window.location.reload());
+        }
+        langSelect.addEventListener("change", handleLangChange);
+    </script> {% endcomment %}
   </body>
 </html>
